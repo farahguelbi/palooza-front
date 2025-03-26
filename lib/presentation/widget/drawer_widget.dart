@@ -70,20 +70,20 @@ class CustomDrawer extends StatelessWidget {
               
             ),
           ),
-          //notification 
-           const Padding(
-            padding: EdgeInsets.only(left: 25.0),
-            child: ListTile(
-              leading: Icon(
-                Icons.notifications,
-                color: Color.fromARGB(255, 61, 60, 60),
-              ),
-              title: Text(
-                'Notifications',
-                style: TextStyle(color: Color.fromARGB(255, 61, 60, 60)),
-              ),
-            ),
-          ),
+          // //notification 
+          //  const Padding(
+          //   padding: EdgeInsets.only(left: 25.0),
+          //   child: ListTile(
+          //     leading: Icon(
+          //       Icons.notifications,
+          //       color: Color.fromARGB(255, 61, 60, 60),
+          //     ),
+          //     title: Text(
+          //       'Notifications',
+          //       style: TextStyle(color: Color.fromARGB(255, 61, 60, 60)),
+          //     ),
+          //   ),
+          // ),
           // FAQ Section
           const Padding(
             padding: EdgeInsets.only(left: 25.0),

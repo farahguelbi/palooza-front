@@ -2050,9 +2050,13 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFB17C46),
+      // backgroundColor: const Color(0xFFF5F5DC),
+            backgroundColor: const Color( 0xFFede8d0
+),
+
       appBar: AppBar(
-        backgroundColor: const Color(0xFFB17C46),
+        backgroundColor: const Color( 0xFFede8d0
+),
         centerTitle: true,
         elevation: 0,
         leading: IconButton(
@@ -2128,7 +2132,9 @@ class _CartScreenState extends State<CartScreen> {
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: const BoxDecoration(
-        color: Color(0xFFB17C46),
+        color: Color(0xFFede8d0
+),
+        
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),

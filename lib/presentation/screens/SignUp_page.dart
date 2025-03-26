@@ -61,7 +61,7 @@ class _SignupPageState extends State<SignupPage> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFB17C46),
+      backgroundColor: const Color(0xFFede8d0),
       body: Column(
         children: [
           Expanded(
@@ -274,34 +274,34 @@ class _SignupPageState extends State<SignupPage> {
             padding: EdgeInsets.symmetric(vertical: size.height * 0.015),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  icon: Image.asset(
-                    'assets/images/FACEBOOK.jpg',
-                    width: size.width * 0.15,
-                    height: size.height * 0.08,
-                  ),
-                  onPressed: () {},
-                ),
-                SizedBox(width: size.width * 0.05),
-                IconButton(
-                  icon: Image.asset(
-                    'assets/images/google.jpg',
-                    width: size.width * 0.1,
-                    height: size.height * 0.08,
-                  ),
-                  onPressed: () {},
-                ),
-                SizedBox(width: size.width * 0.05),
-                IconButton(
-                  icon: Image.asset(
-                    'assets/images/apple.jpg',
-                    width: size.width * 0.1,
-                    height: size.height * 0.08,
-                  ),
-                  onPressed: () {},
-                ),
-              ],
+              // children: [
+              //   IconButton(
+              //     icon: Image.asset(
+              //       'assets/images/FACEBOOK.jpg',
+              //       width: size.width * 0.15,
+              //       height: size.height * 0.08,
+              //     ),
+              //     onPressed: () {},
+              //   ),
+              //   SizedBox(width: size.width * 0.05),
+              //   IconButton(
+              //     icon: Image.asset(
+              //       'assets/images/google.jpg',
+              //       width: size.width * 0.1,
+              //       height: size.height * 0.08,
+              //     ),
+              //     onPressed: () {},
+              //   ),
+              //   SizedBox(width: size.width * 0.05),
+              //   IconButton(
+              //     icon: Image.asset(
+              //       'assets/images/apple.jpg',
+              //       width: size.width * 0.1,
+              //       height: size.height * 0.08,
+              //     ),
+              //     onPressed: () {},
+              //   ),
+              // ],
             ),
           ),
         ],

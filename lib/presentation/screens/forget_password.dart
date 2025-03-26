@@ -19,7 +19,7 @@ final _formKey=GlobalKey<FormState>();
     final size = MediaQuery.of(context).size; // Get screen size
 
     return Scaffold(
-      backgroundColor: const Color(0xFFB17C46),
+      backgroundColor: const Color(0xFFede8d0),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: size.width * 0.05), 

@@ -30,11 +30,11 @@ class _Page2State extends State<Page2> {
               ),
             ),
           ),
-          // Character image
+   
           SizedBox(
-            height: 320, // Significantly increased size for the image
+            height: 320, 
             child: Image.asset(
-              'assets/images/chef front.png', // Path to your image
+              'assets/images/chef front.png', 
               fit: BoxFit.contain,
             ),
           ),

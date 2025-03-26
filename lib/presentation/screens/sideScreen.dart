@@ -804,7 +804,8 @@ class _SideScreenState extends State<SideScreen> {
   Widget build(BuildContext context) {
     print('thisID ${widget.saleId}');
     return Scaffold(
-      backgroundColor: const Color(0xFFB17C46),
+      backgroundColor: const Color(  0xFFede8d0
+),
       appBar: AppBar(
         backgroundColor: const Color(0xFF790303),
         elevation: 0,
@@ -964,7 +965,7 @@ class SideCart extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 6.0),
       child: Container(
         decoration: BoxDecoration(
-          color: const Color(0xFFFD9D9D9).withOpacity(0.8),
+          color: const Color(0xFFACADA5).withOpacity(0.9),
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(

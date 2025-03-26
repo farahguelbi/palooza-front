@@ -18,10 +18,9 @@ import 'package:get/get.dart';
 
 class Page1 extends StatelessWidget {
   
- // Define a nullable Future
+
   Future<bool> _autoLogin(BuildContext context) async {
     bool isLoggedIn = true;
-    // Initialize the authentication controller
     Get.put(AuthenticationController());
     final AuthenticationController authController = Get.find();
     
@@ -35,8 +34,6 @@ class Page1 extends StatelessWidget {
 
 
 
-
-    // Perform the auto-login logic
  final autoLoginResult = await AutoLoginUsecase(sl()).call();
 autoLoginResult.fold(
   (failure) {
@@ -82,13 +79,12 @@ return isLoggedIn;
           // Background Image
           Positioned.fill(
             child: Image.asset(
-              'assets/images/pizza.jpg', // Correct path to your image
+              'assets/images/pizza.jpg', 
               fit: BoxFit.cover,
             ),
           ),
-          // Title "PIZZAPALOOZA" lower on the screen
           Positioned(
-            top: 100, // Adjust here to position it lower (100px from the top)
+            top: 100, 
             left: 0,
             right: 0,
             child: Center(
@@ -110,11 +106,9 @@ return isLoggedIn;
               ),
             ),
           ),
-          // Main content
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              // Descriptive Text
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Text(
@@ -136,20 +130,19 @@ return isLoggedIn;
               ),
               const SizedBox(height: 20),
 
-              // 'GET STARTED' Button with FutureBuilder
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 50.0),
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.orange.withOpacity(0.6), // Semi-transparent orange background
-                    borderRadius: BorderRadius.circular(8), // Slightly rounded corners
+                    color: Colors.orange.withOpacity(0.6), 
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   child: TextButton(
                           style: TextButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(vertical: 20), // Adjust height of the button
+                            padding: const EdgeInsets.symmetric(vertical: 20), 
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8), // Match the container's rounded corners
+                              borderRadius: BorderRadius.circular(8), 
                             ),
                           ),
                           onPressed: () async{

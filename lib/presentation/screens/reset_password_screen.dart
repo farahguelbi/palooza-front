@@ -23,7 +23,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: const Color(0xFFB17C46),
+      backgroundColor: const Color(0xFFede8d0),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

@@ -24,7 +24,7 @@ class ViewProfileScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFB17C46),
+      backgroundColor: const Color(0xFFede8d0),
       appBar: AppBar(
         backgroundColor: const Color(0xFF790303),
         elevation: 0,
@@ -98,10 +98,12 @@ class ViewProfileScreen extends StatelessWidget {
           const SizedBox(height: 20),
           // Profile Details Section
           Expanded(
+            
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
+                  
                   children: [
                     ProfileDetailRow(
                       label: 'Phone Number',

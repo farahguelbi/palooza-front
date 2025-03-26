@@ -1204,9 +1204,9 @@ class _AddScreenState extends State<AddScreen> with SingleTickerProviderStateMix
   final SaleController saleController = Get.put(SaleController());
   late String currentUserId;
 
-  List<Map<String, dynamic>> selectedIngredients = []; // To store the selected ingredients and their quantities
+  List<Map<String, dynamic>> selectedIngredients = []; 
   double totalPrice = 0;
-  int pizzaQuantity = 1; // Default pizza quantity
+  int pizzaQuantity = 1; 
 
   // Pizza sizes
   final Map<String, double> sizeMap = {
@@ -1216,45 +1216,42 @@ class _AddScreenState extends State<AddScreen> with SingleTickerProviderStateMix
   };
 
   Map<String, double> selectedPizzaPrices = {
-    'S': 8.0, // Initial price for small pizza
-    'M': 10.0, // Initial price for medium pizza
-    'L': 12.0, // Initial price for large pizza
+    'S': 8.0, 
+    'M': 10.0, 
+    'L': 12.0, 
   };
 
-  double currentSize = 200; // Default pizza size
+  double currentSize = 200; 
 
   @override
   void initState() {
     super.initState();
 
-    totalPrice = getTotalPrice(); // Initialize total price
-
-    // Initialize the animation controller
+    totalPrice = getTotalPrice(); 
+   
+   
     _controller = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
 
-    // Initialize the rotation animation
     _rotationAnimation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
 
-    // Initialize the size animation
     _sizeAnimation = Tween<double>(begin: 200, end: 200).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
 
     ingredientController.getAllIngredients();
 
-    // Get the current user ID
     final authController = Get.find<AuthenticationController>();
     currentUserId = authController.currentUser.id!;
   }
 
   @override
   void dispose() {
-    _controller.dispose(); // Dispose of the controller
+    _controller.dispose(); 
     super.dispose();
   }
 
@@ -1276,7 +1273,7 @@ class _AddScreenState extends State<AddScreen> with SingleTickerProviderStateMix
   }
 
   double getTotalPrice() {
-    // Base price for the selected size
+    
     double basePrice = selectedPizzaPrices[selectedSize] ?? 0;
 
     // Calculate the total price of ingredients
@@ -1391,7 +1388,7 @@ final saleId = sale;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFB17C46), // Background color
+      backgroundColor: const Color(0xFFede8d0), // Background color
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,

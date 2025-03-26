@@ -10,9 +10,11 @@ class PizzaController extends GetxController {
   
   List<Pizza> allPizzas = [];
   List<Pizza> pizzasList = [];
+  List<Pizza> filteredPizzas = [];
   bool isLoading = false;
   String msg = '';
   Pizza ?selectedPizza;
+   String selectedType = 'All';
 
 // 
    Future<bool> getAllpizzas() async {
@@ -25,11 +27,13 @@ class PizzaController extends GetxController {
       (failure) {
         msg = 'Failed to load products';
         allPizzas=[];
+        filteredPizzas = [];
         update();
         return false;
       },
       (pizzas) {
         allPizzas = pizzas;
+        filteredPizzas = pizzas;
         msg = '';
         update();
         return true;
@@ -97,6 +101,43 @@ class PizzaController extends GetxController {
       },
     );
   }
+// void filterPizzasByType(String? type) {
+//   print("Filtering pizzas for type: $type");
 
-  
+//   if (type == 'All' || type == null) {
+//     filteredPizzas = allPizzas; // ✅ Afficher toutes les pizzas
+//   } else {
+//     filteredPizzas = allPizzas
+//         .where((pizza) => pizza.type.toLowerCase() == type.toLowerCase())
+//         .toList(); // ✅ Filtrage par type (Full Pizza ou Slice)
+//     print("Filtered pizzas count: ${filteredPizzas.length}");
+//   }
+
+//   update(); // 🔄 Mise à jour de l'UI
+// }
+// Filtre les pizzas par type
+  // void filterPizzasByType(String? type) {
+  //   selectedType = type ?? 'All';
+
+  //   if (selectedType == 'All') {
+  //     filteredPizzas = allPizzas;
+  //   } else {
+  //     filteredPizzas = allPizzas
+  //         .where((pizza) => pizza.type.toLowerCase() == selectedType.toLowerCase())
+  //         .toList();
+  //   }
+  //   update();
+  // }
+  void filterPizzasByType(String? type) {
+  selectedType = type ?? 'All';
+
+  if (selectedType == 'All') {
+    filteredPizzas = allPizzas; 
+  } else {
+    filteredPizzas = allPizzas
+        .where((pizza) => pizza.type.toLowerCase() == selectedType.toLowerCase())
+        .toList(); 
+  }
+  update(); // Update the UI
+}
 }

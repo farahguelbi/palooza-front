@@ -17,7 +17,7 @@ class ProfileDetailRow extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: const Color(0xFFFFF1E6).withOpacity(0.8),
+        color: const Color(0xFFFbbbbbb).withOpacity(0.8),
         borderRadius: BorderRadius.circular(10.0),
         boxShadow: [
           BoxShadow(

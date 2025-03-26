@@ -15,7 +15,7 @@ class updatePasswordScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-        backgroundColor: const Color(0xFFB17C46),
+        backgroundColor: const Color(0xFFede8d0),
         body: SafeArea(
           child: SingleChildScrollView(
             child: SingleChildScrollView(
@@ -107,6 +107,7 @@ class updatePasswordScreen extends StatelessWidget {
                                 backgroundColor: const Color(0xFF790303),
                                 padding: EdgeInsets.symmetric(
                                   vertical: size.height * 0.02,
+                                  horizontal: size.width*0.06,
                                 ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(50),

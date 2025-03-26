@@ -1531,9 +1531,9 @@ class _WishlistPageState extends State<WishlistPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFB17C46),
+      backgroundColor: const Color(0xFFede8d0),
       appBar: AppBar(
-        backgroundColor: const Color(0xFFB17C46),
+        backgroundColor: const Color(0xFFede8d0),
         centerTitle: true,
         elevation: 0,
         leading: IconButton(

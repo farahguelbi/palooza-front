@@ -11,7 +11,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: const Color(0xFFB17C46), // Couleur de fond marron
+      // backgroundColor: const Color(0xFFB17C46), // Couleur de fond marron
+            backgroundColor: const Color(0xFFede8d0), // Couleur de fond marron
+
       elevation: 0, // Suppression de l'ombre
       automaticallyImplyLeading: true, // Affiche le bouton de menu par défaut
       flexibleSpace: Padding(
