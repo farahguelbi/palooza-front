@@ -231,17 +231,14 @@ class _LoginPageState extends State<LoginPage> {
         elevation: 5,
       ),
       onPressed: () async {
-        // Validation du formulaire
         if (_formKey.currentState!.validate()) {
           try {
-            // Appel de la méthode `login` dans le contrôleur
             await controller.login(
               email: emailController,
               password: passwordController,
               context: context,
             );
           } catch (e) {
-            // Afficher un toast pour les erreurs
             Fluttertoast.showToast(
               msg: e.toString(),
               toastLength: Toast.LENGTH_SHORT,
@@ -252,7 +249,6 @@ class _LoginPageState extends State<LoginPage> {
             );
           }
         } else {
-          // Afficher un toast si les champs sont invalides
           Fluttertoast.showToast(
             msg: "Please fill in all required fields.",
             toastLength: Toast.LENGTH_SHORT,

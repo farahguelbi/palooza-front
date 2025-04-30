@@ -30,10 +30,7 @@ class Page1 extends StatelessWidget {
      Get.put(CustomPizzaController());
     Get.put(CartController());
     Get.put(CommandController());
-
-
-
-
+    // pour verifier si il y'a un token valide  ou on on doit appeler le autologinusecase 
  final autoLoginResult = await AutoLoginUsecase(sl()).call();
 autoLoginResult.fold(
   (failure) {
@@ -48,10 +45,7 @@ autoLoginResult.fold(
           isLoggedIn = false;
         }, (token) async {
           authController.currentUser = token;
-          // await wishListController
-          //     .getUserWishlist(authController.currentUser.id!);
-          // await cartController.getUserCart(authController.currentUser.id!);
-          // Get.put(NotificationsController());
+         
         });
       print(authController.currentUser.id);
 
@@ -68,19 +62,21 @@ Future.delayed(Duration(seconds: 1), () {
     }
     );
 
-return isLoggedIn;
+return isLoggedIn;//pour indiquzer si user est connecté 
   }
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
+      //pour superposer les widg
       body: Stack(
         children: [
-          // Background Image
+          // Background Image ( positioned.fill pour remplir ecran )
           Positioned.fill(
             child: Image.asset(
               'assets/images/pizza.jpg', 
-              fit: BoxFit.cover,
+              fit: BoxFit.cover,//sans deformer l'image lorsque elle remplit
             ),
           ),
           Positioned(

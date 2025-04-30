@@ -32,30 +32,6 @@ class SaleRepositoryImpl implements SaleRepository {
 
  
 
-//  @override
-//   Future<Either<Failure, Unit>> updateSale(Sale sale) async {
-//     try {
-//       // Prepare the sale data
-//       final saleData = {
-//         'userId': sale.userId,
-//         'pizzaId': sale.pizzaId,
-//         'pizzaQuantity': sale.pizzaQuantity,
-//         'sides': sale.sides.map((side) => {
-//           'sideId': side.side.id,
-//           'quantity': side.quantity,
-//         }).toList(),
-//       };
-
-//       // Call the remote data source
-//       await saleRemoteDataSource.updateSale(sale.id!, saleData);
-
-//       // Return success
-//       return const Right(unit);
-//     } catch (e) {
-//       // Return a failure
-//       return Left(ServerFailure());
-//     }
-//   }
 
 
 
@@ -81,20 +57,6 @@ class SaleRepositoryImpl implements SaleRepository {
     }
   }
   
-//  @override
-//   Future<Either<Failure, void>> addMultipleSides(
-//       String saleId, List<SaleSide> sides, double totalPrice) async {
-//   try {
-//     await saleRemoteDataSource.addMultipleSides(
-//       saleId,
-//       sides.map((side) => SaleSideModel(sideId: side.sideId, quantity: side.quantity)).toList(),
-//       totalPrice,
-//     );
-//     return const Right(null);
-//   } catch (error) {
-//     return Left(ServerFailure());
-//   }
-//   }
 @override
 Future<Either<Failure, void>> addMultipleSides(
     String saleId, List<SaleSide> sides, double totalPrice) async {

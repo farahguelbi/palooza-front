@@ -12,7 +12,7 @@ class ViewProfileScreen extends StatelessWidget {
   const ViewProfileScreen({Key? key}) : super(key: key);
    String formatDateTime(DateTime? date) {
     if (date == null) {
-      return 'Not provided'; // Default text if date is null
+      return 'Not provided'; 
     }
     return DateFormat('dd MMMM yyyy').format(date);
   }
@@ -20,7 +20,7 @@ class ViewProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
           final AuthenticationController authenticationController = Get.find();
-
+//recupere taille de l'ecran 
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -51,6 +51,7 @@ class ViewProfileScreen extends StatelessWidget {
           ),
         ),
       ),
+      //recupere les données de controleur 
       body:GetBuilder<AuthenticationController>(
         builder: (controller){
           final currentUser = controller.currentUser;

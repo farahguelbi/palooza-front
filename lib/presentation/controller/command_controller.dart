@@ -14,26 +14,7 @@ Command?currentCommand;
   List<Command> userCommands= [];
   bool isLoading=false;
   String errorMessage='';
-  // Future<void>getAllCommands()async{
-  //   isLoading=true;
-  //   update();
-  //   final result=await GetAllCommands(sl())();
-  //   result.fold(
-  //     (faillure){
-  //       print("erreur fetching commands:$faillure");
-  //       isLoading=false;
-  //       update();
-  //     },
-  //     (command){
-  //       userCommads=command;
-  //       isLoading=false;
-  //       update();
 
-  //     }
-
-  //   );
-
-  // }
     Future<bool> getAllCommands() async {
     isLoading = true;
     update();
@@ -54,24 +35,7 @@ Command?currentCommand;
     return success;
   }
 
-  // Future<void>getCommandById(String id)async {
-  //   isLoading=true;
-  //   update();
-  //   final result=await GetCommandById(sl())(id);
-  //   result.fold(
-  //     (faillure){
-  //       print("error fetching command:$faillure");
-  //     },
-  //     (command){
-  //       currentCommand=command;
 
-
-  //     },
-
-  //   );
-  //   isLoading=false;
-  //   update();
-  // }
    Future<bool> getCommandById(String id) async {
     isLoading = true;
     update();
@@ -91,18 +55,7 @@ Command?currentCommand;
     update();
     return success;
   }
-  // Future<void> createNewCommand(Map<String, dynamic> commandData) async {
-  //   final result = await CreateCommand(sl())(commandData);
-  //   result.fold(
-  //     (failure) {
-  //       print("Error creating command: $failure");
-  //     },
-  //     (data) {
-  //       userCommads.add(data);
-  //       update();
-  //     },
-  //   );
-  // }
+ 
     Future<bool> createNewCommand(Map<String, dynamic> commandData) async {
     final result = await CreateCommand(sl())(commandData);
     bool success = false;
@@ -118,18 +71,7 @@ Command?currentCommand;
     );
     return success;
   }
-  //   Future<void> updateExistingCommand(String id, Map<String, dynamic> commandData) async {
-  //   final result = await UpdateCommand(sl())(id, commandData);
-  //   result.fold(
-  //     (failure) {
-  //       print("Error updating command: $failure");
-  //     },
-  //     (data) {
-  //       userCommads = userCommads.map((cmd) => cmd.id == id ? data : cmd).toList();
-  //       update();
-  //     },
-  //   );
-  // }
+ 
     Future<bool> updateExistingCommand(String id, Map<String, dynamic> commandData) async {
     final result = await UpdateCommand(sl())(id, commandData);
     bool success = false;
@@ -145,18 +87,7 @@ Command?currentCommand;
     );
     return success;
   }
-  // Future<void> deleteExistingCommand(String id) async {
-  //   final result = await DeleteCommand(sl())(id);
-  //   result.fold(
-  //     (failure) {
-  //       print("Error deleting command: $failure");
-  //     },
-  //     (_) {
-  //       userCommads.removeWhere((cmd) => cmd.id == id);
-  //       update();
-  //     },
-  //   );
-  // }
+ 
     Future<bool> deleteExistingCommand(String id) async {
     final result = await DeleteCommand(sl())(id);
     bool success = false;

@@ -32,18 +32,7 @@ class PizzacustomModel extends PizzaCustom {
     );
   }
 
-  // // Method to convert JSON into a PizzacustomModel instance
-  // factory PizzacustomModel.fromJson(Map<String, dynamic> json) {
-  //   return PizzacustomModel(
-  //     id: json['_id'] ?? '',
-  //     name: json['name'] ?? '',
-  //     price: double.parse(json['price'].toString()),
-  //     size: PizzaSizeModel.fromJson(json['size']),
-  //     ingredients: (json['ingredients'] as List)
-  //         .map((ingredientJson) => IngredientModel.fromJson(ingredientJson))
-  //         .toList(),
-  //   );
-  // }
+
 
   // Method to convert PizzacustomModel instance into JSON
   Map<String, dynamic> toJson() {

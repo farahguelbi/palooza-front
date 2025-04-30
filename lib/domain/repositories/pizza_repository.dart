@@ -6,7 +6,6 @@ import '../entities/pizza.dart';
 abstract class PizzaRepository {
   Future<Either<Failure, List<Pizza>>> getAllPizzas();
   Future<Either<Failure, Pizza>> getPizzaById({required String id});
-  // Future<Either<Failure, Unit>> createPizza(Pizza pizza);
   Future<Either<Failure, List<Pizza>>> getPizzaByType(String type);
   Future<Either<Failure, List<Pizza>>> searchPizzas(String name);
 }

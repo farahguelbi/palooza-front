@@ -16,7 +16,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
 final _formKey=GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size; // Get screen size
+    final size = MediaQuery.of(context).size; 
 
     return Scaffold(
       backgroundColor: const Color(0xFFede8d0),
@@ -26,7 +26,6 @@ final _formKey=GlobalKey<FormState>();
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Back Button Section
               Padding(
                 padding: const EdgeInsets.only(top: 40.0, left: 10.0), 
                 child: IconButton(
@@ -36,17 +35,16 @@ final _formKey=GlobalKey<FormState>();
                   },
                 ),
               ),
-              SizedBox(height: size.height * 0.05), // Spacing below the back button
-              // Image Section
+              SizedBox(height: size.height * 0.05),
               Center(
                 child: Image.asset(
-                  'assets/images/forget.png', // Replace with your image path
+                  'assets/images/forget.png', 
                   height: size.height * 0.35, 
                   fit: BoxFit.contain,
                 ),
               ),
-              SizedBox(height: size.height * 0.03), // 3% vertical spacing
-              // Title Section
+              SizedBox(height: size.height * 0.03), 
+              
               Text(
                 'Forgot Password?',
                 style: TextStyle(
@@ -55,18 +53,16 @@ final _formKey=GlobalKey<FormState>();
                   color: Colors.black87,
                 ),
               ),
-              SizedBox(height: size.height * 0.015), // 1.5% vertical spacing
-              // Subtitle Section
+              SizedBox(height: size.height * 0.015), 
               Text(
                 'Please enter your registered email address. We will get back to you with the reset password link and confirmation OTP. Thanks!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: size.width * 0.04, // 4% of screen width
+                  fontSize: size.width * 0.04, 
                   color: Colors.black54,
                 ),
               ),
-              SizedBox(height: size.height * 0.05), // 5% vertical spacing
-              // Email Input Field
+              SizedBox(height: size.height * 0.05), 
               Form(
                 key: _formKey,
                 child: CustomTextField(
@@ -83,8 +79,7 @@ final _formKey=GlobalKey<FormState>();
                   },
                 ),
               ),
-              SizedBox(height: size.height * 0.05), // 5% vertical spacing
-              // Submit Button
+              SizedBox(height: size.height * 0.05), 
               GetBuilder<AuthenticationController>(
                 init: AuthenticationController(),
                 builder: (controller) {
@@ -100,16 +95,16 @@ final _formKey=GlobalKey<FormState>();
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF790303),
                           padding: EdgeInsets.symmetric(
-                            vertical: size.height * 0.02, // 2% of screen height
+                            vertical: size.height * 0.02, 
                           ),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50.0), // Static radius
+                            borderRadius: BorderRadius.circular(50.0), 
                           ),
                         ),
                         child: Text(
                           'Send',
                           style: TextStyle(
-                            fontSize: size.width * 0.045, // 4.5% of screen width
+                            fontSize: size.width * 0.045, 
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
@@ -119,7 +114,7 @@ final _formKey=GlobalKey<FormState>();
                   );
                 }
               ),
-              SizedBox(height: size.height * 0.02), // 2% vertical spacing
+              SizedBox(height: size.height * 0.02), 
             ],
           ),
         ),

@@ -30,7 +30,6 @@ Future<void> getAllIngredients() async {
 
   res.fold(
     (failure) {
-      // En cas d'échec
               print('Failed to fetch ingredients: $failure');
 
       msg = 'Failed to load ingredients';
@@ -40,7 +39,6 @@ Future<void> getAllIngredients() async {
     (ingredients) {
               print('Ingredients fetched: $ingredients');
 
-      // En cas de succès
       allingredients = ingredients;
       msg = '';
       update();
@@ -94,15 +92,13 @@ Future<void>getIngredientById(String id) async{
     final index = selectedIngredients.indexWhere((item) => item.id == ingredient.id);
 
     if (index != -1) {
-      // Si l'ingrédient est déjà sélectionné, incrémenter la quantité dans le dictionnaire
       ingredientQuantities[ingredient.id] = ingredientQuantities[ingredient.id]! + 1;
     } else {
-      // Si l'ingrédient n'est pas dans la liste, l'ajouter avec une quantité de 1
       selectedIngredients.add(ingredient);
       ingredientQuantities[ingredient.id] = 1;
     }
 
-    update(); // Mettre à jour l'affichage
+    update(); 
   }
 
   // Retirer un ingrédient de la pizza
@@ -118,27 +114,13 @@ Future<void>getIngredientById(String id) async{
       }
     }
 
-    update(); // Mettre à jour l'affichage
+    update(); 
   }
 
   // Retourner la quantité d'un ingrédient
   int getIngredientQuantity(Ingredient ingredient) {
     return ingredientQuantities[ingredient.id] ?? 0;
   }
-// void incrementIngredientQuantity(Ingredient ingredient) {
-//     // Check if the ingredient is already selected
-//     final index = selectedIngredients.indexWhere((item) => item.id == ingredient.id);
 
-//     if (index != -1) {
-//       // If it's already selected, increment the quantity
-//       selectedIngredients[index].quantity++;
-//     } else {
-//       // Otherwise, add it to the list with a quantity of 1
-//       ingredient.quantity = 1;
-//       selectedIngredients.add(ingredient);
-//     }
-
-//     update(); // Notify listeners
-//   }
 }
 

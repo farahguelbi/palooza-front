@@ -274,34 +274,7 @@ class _SignupPageState extends State<SignupPage> {
             padding: EdgeInsets.symmetric(vertical: size.height * 0.015),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              // children: [
-              //   IconButton(
-              //     icon: Image.asset(
-              //       'assets/images/FACEBOOK.jpg',
-              //       width: size.width * 0.15,
-              //       height: size.height * 0.08,
-              //     ),
-              //     onPressed: () {},
-              //   ),
-              //   SizedBox(width: size.width * 0.05),
-              //   IconButton(
-              //     icon: Image.asset(
-              //       'assets/images/google.jpg',
-              //       width: size.width * 0.1,
-              //       height: size.height * 0.08,
-              //     ),
-              //     onPressed: () {},
-              //   ),
-              //   SizedBox(width: size.width * 0.05),
-              //   IconButton(
-              //     icon: Image.asset(
-              //       'assets/images/apple.jpg',
-              //       width: size.width * 0.1,
-              //       height: size.height * 0.08,
-              //     ),
-              //     onPressed: () {},
-              //   ),
-              // ],
+             
             ),
           ),
         ],

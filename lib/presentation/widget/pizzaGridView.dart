@@ -42,13 +42,12 @@ class PizzaGridView extends StatelessWidget {
                   ),
                   child: Image.asset(
                     pizza['image'],
-                    height: 150, // Adjusted height for larger image
+                    height: 150, 
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
                 ),
                 const SizedBox(height: 8.0),
-                // Pizza Name
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Text(
@@ -61,7 +60,6 @@ class PizzaGridView extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                // Pizza Description
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Text(
@@ -75,13 +73,11 @@ class PizzaGridView extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                // Price, Rating, and Heart Icon
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // Price and Rating
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -106,7 +102,6 @@ class PizzaGridView extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // Favorite Icon
                       IconButton(
                         icon: Icon(
                           pizza['isFavorite'] ? Icons.favorite : Icons.favorite_border,

@@ -42,23 +42,4 @@ class IngredientRepositoryImpl implements IngredientRepository {
     throw UnimplementedError();
   }
 
- /* @override
-  Future<Either<Failure, Map<String, List<Ingredient>>>> getIngredientsByLayer() async {
-    try {
-      final ingredients = await ingredientsRemoteDataSource.getAllIngredients();
-      final Map<String, List<Ingredient>> groupedIngredients = {};
-
-      for (var ingredient in ingredients) {
-        final layer = ingredient.layer.value;
-        if (!groupedIngredients.containsKey(layer)) {
-          groupedIngredients[layer] = [];
-        }
-        groupedIngredients[layer]!.add(ingredient);
-      }
-
-      return Right(groupedIngredients);
-    } catch (e) {
-      return Left(ServerFailure());
-    }
-  }*/
 }

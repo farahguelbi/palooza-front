@@ -18,20 +18,7 @@ class PizzaRemoteDataSourceImpl implements PizzaRemoteDataSource {
 
   PizzaRemoteDataSourceImpl();
 
-  // @override
-  // Future<List<PizzaModel>> getAllPizzas() async {
-  //   final response = await http.get(
-  //     Uri.parse(ApiConst.getAllPizzas),
-  //     headers: {'Content-Type': 'application/json'},
-  //   );
-
-  //   if (response.statusCode == 200) {
-  //     final List<dynamic> jsonResponse = json.decode(response.body);
-  //     return jsonResponse.map((data) => PizzaModel.fromJson(data)).toList();
-  //   } else {
-  //     throw ServerException();
-  //   }
-  // }
+ 
    @override
   Future<List<PizzaModel>> getAllPizzas() async {
     try {

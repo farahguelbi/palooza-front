@@ -68,39 +68,7 @@ class PizzaController extends GetxController {
 
   }
 
-   Future<void> searchPizzas(String name) async {
-    print("🔍 searchPizzas() called with: $name"); // ✅ Debugging line
-
-    if (name.isEmpty) {
-      pizzasList = allPizzas;
-      msg = '';
-      update();
-      print("🔄 Reset search. Showing all pizzas."); // ✅ Debugging line
-      return;
-    }
-
-    isLoading = true;
-    update();
-    
-    final res = await SearchPizzas(sl())(name);
-    isLoading = false;
-
-    res.fold(
-      (failure) {
-        msg = 'No pizzas found';
-        
-        pizzasList = [];
-        update();
-        print("❌ No pizzas found for: $name"); // ✅ Debugging line
-      },
-      (pizzas) {
-        pizzasList = pizzas;
-        msg = '';
-        update();
-        print("✅ Found ${pizzas.length} pizzas for: $name"); // ✅ Debugging line
-      },
-    );
-  }
+ 
 // void filterPizzasByType(String? type) {
 //   print("Filtering pizzas for type: $type");
 
@@ -140,4 +108,17 @@ class PizzaController extends GetxController {
   }
   update(); // Update the UI
 }
+ // Search products by name
+  void searchPizzas(String query) {
+    if (query.isEmpty) {
+      filteredPizzas = allPizzas; 
+    } else {
+      filteredPizzas = allPizzas
+          .where((product) =>
+              product.name!.toUpperCase().contains(query.toUpperCase()))
+          .toList(); // Filter by name
+    }
+    update(); // Notify listeners
+  }
+
 }

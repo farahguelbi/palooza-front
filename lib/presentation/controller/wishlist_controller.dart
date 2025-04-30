@@ -189,7 +189,7 @@ class WishlistController extends GetxController {
     update();
 
     final result = await AddToWishlist(sl())(userId,  pizzaId);
-       bool success = false;
+      bool success = false;
     result.fold(
       (failure) {
         errorMessage = 'Failed to add pizza to wishlist.';
@@ -243,14 +243,15 @@ class WishlistController extends GetxController {
     if (userId == null) return null;
     return userWishlist?.id;
   }
-   /// Vérifie si la pizza est dans la wishlist (synchronisation avec le backend)
+   /// Vérifie si la pizza est dans la wishlist 
   bool checkWishlistStatus(String id) {
     final WishlistController wishlistController = Get.find();
     final AuthenticationController authenticationController = Get.find();
     final String? currentUserId = authenticationController.currentUser?.id;
 
     if (currentUserId != null) {
-      wishlistController.getWishlistByUserId(currentUserId).then((success) {
+      wishlistController.getWishlistByUserId(currentUserId).then(
+        (success) {
         if (success && wishlistController.userWishlist != null) {
           // Synchronise l'état local avec la liste du backend
            return  wishlistController.userWishlist!.pizzas

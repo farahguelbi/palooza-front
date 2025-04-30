@@ -74,30 +74,29 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
   }
  Future<CartModel> getCart(String userId) async {
     try {
-      print("🚀 [API REQUEST] Fetching Cart for User: $userId");
-      // final url = Uri.parse("http://192.168.1.14:5000/api/cart/cart/$userId");
-      // print("🔗 API URL: $url");
+      print(" [API REQUEST] Fetching Cart for User: $userId");
+
 
       final response = await http.get(
         Uri.parse(ApiConst.getCart(userId)),
         headers: {'Content-Type': 'application/json'},
       );
 
-      print("📩 [API RESPONSE] Status Code: ${response.statusCode}");
-      print("📩 [API RESPONSE] Body: ${response.body}");
+      print(" [API RESPONSE] Status Code: ${response.statusCode}");
+      print(" [API RESPONSE] Body: ${response.body}");
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> jsonResponse = json.decode(response.body);
 
         // 🛠 Vérification de la structure JSON avant parsing
         if (!jsonResponse.containsKey("salesID")) {
-          print("❌ [ERROR] API response does NOT contain 'salesID'!");
+          print(" [ERROR] API response does NOT contain 'salesID'!");
         } else if (jsonResponse["salesID"] == null) {
-          print("❌ [ERROR] 'salesID' is NULL in API response!");
+          print(" [ERROR] 'salesID' is NULL in API response!");
         } else if (jsonResponse["salesID"] is! List) {
-          print("❌ [ERROR] 'salesID' is NOT a List! Type: ${jsonResponse["salesID"].runtimeType}");
+          print("[ERROR] 'salesID' is NOT a List! Type: ${jsonResponse["salesID"].runtimeType}");
         } else {
-          print("✅ [SUCCESS] 'salesID' is a valid List with ${jsonResponse["salesID"].length} items.");
+          print("[SUCCESS] 'salesID' is a valid List with ${jsonResponse["salesID"].length} items.");
         }
 
         return CartModel.fromJson(jsonResponse);
@@ -105,7 +104,7 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
         throw ServerException();
       }
     } catch (e) {
-      print("❌ [EXCEPTION] Error Fetching Cart: $e");
+      print(" [EXCEPTION] Error Fetching Cart: $e");
       throw ServerException();
     }
   }
@@ -113,25 +112,6 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
 
 
 
-  // @override
-  // Future<CartModel> getCart(String userId) async {
-    
-  //   try {
-  //     final response = await http.get(
-  //       Uri.parse(ApiConst.getCart(userId)),
-  //       headers: {'Content-Type': 'application/json'},
-  //     );
-
-  //     if (response.statusCode == 200) {
-  //       final Map<String, dynamic> jsonResponse = json.decode(response.body);
-  //       return CartModel.fromJson(jsonResponse);
-  //     } else {
-  //       throw ServerException();
-  //     }
-  //   } catch (e) {
-  //     throw ServerException();
-  //   }
-  // }
 
   @override
   Future<void> removeSaleFromCart(String userId, String saleId) async {

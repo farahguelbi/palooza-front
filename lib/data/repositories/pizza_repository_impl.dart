@@ -34,45 +34,7 @@ class PizzaRepositoryImpl implements PizzaRepository {
     }
   }
 
-/*@override
-Future<Either<Failure, Unit>> createPizza(Pizza pizza) async {
-  try {
-    final pizzaModel = PizzaModel(
-      id: pizza.id,
-      name: pizza.name,
-      image: pizza.image,
-      reference: pizza.reference,
-      description: pizza.description,
-      price: pizza.price,
-      ingredients: pizza.ingredients
-          .map((ingredient) => PizzaIngredientModel(
-                ingredient: IngredientModel(
-                  id: ingredient.ingredient.id,
-                  name: ingredient.ingredient.name,
-                  price: ingredient.ingredient.price,
-                  image: ingredient.ingredient.image,
-                  layer: ingredient.ingredient.layer,
-                ),
-                quantity: ingredient.quantity,
-              ))
-          .toList(),
-      type: pizza.type,
-      sizes: pizza.sizes
-          .map((size) => PizzaSizeModel(
-                size: size.size,
-                price: size.price,
-              ))
-          .toList(),
-    );
 
-    await pizzaRemoteDataSource.createPizza(pizzaModel.toJson());
-    return Right(unit);
-  } catch (e) {
-    return Left(ServerFailure());
-  }
-}
-
-*/
   @override
   Future<Either<Failure, List<Pizza>>> getPizzaByType(String type) async {
     try {

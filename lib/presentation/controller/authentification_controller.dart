@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:front/core/utils/string_const.dart';
 import 'package:front/di.dart';
 import 'package:front/domain/entities/token.dart';
@@ -45,10 +44,6 @@ class AuthenticationController extends GetxController {
   String? birthDate;
   final ImagePicker _picker = ImagePicker();
   XFile ? img;
-
-
-
-
 // les methodes 
   bool get missingData =>
       currentUser.phone == null ||
@@ -90,6 +85,7 @@ class AuthenticationController extends GetxController {
   }
 
  Future<String> registerUser({
+  //champ de text pour recuperer  le user  a ecrit + context flutter (ya3awen f )
   required TextEditingController email,
   required TextEditingController firstName,
   required TextEditingController lastName,
@@ -137,6 +133,7 @@ class AuthenticationController extends GetxController {
         // On success
         userId = success; // Assuming success returns user ID
         message = "Account created successfully!";
+        // je dois creer automatiquement cart et wishlist pour user 
         final CreateOrGetCartUseCase createCartUseCase = sl<CreateOrGetCartUseCase>();
          createCartUseCase(userId: userId);
          final CreateWishListUseCase createWishListUseCase = sl<CreateWishListUseCase>();
@@ -189,13 +186,16 @@ class AuthenticationController extends GetxController {
 
 
   Future<void> login(
-      {required TextEditingController email,
+      {
+        //faire des champs pour recuperer ce que le user a mis 
+        required TextEditingController email,
       required TextEditingController password,
       required BuildContext context}) async {
     isLoading = true;
     update();
     final res =
-        await LoginUsecase(sl())(email: email.text, password: password.text);
+        await LoginUsecase(sl())(
+          email: email.text, password: password.text);
     res.fold(
         (l) {
           isLoading = false;
@@ -208,10 +208,13 @@ class AuthenticationController extends GetxController {
             backgroundColor: Colors.red,
             textColor: Colors.white,
             fontSize: 16.0);
-        }, (r) async {
+        }, 
+        (r) async {
       token = r;
+      //
       email.clear();
       password.clear();
+      //
          final userRes =await getCurrentUser(r.userId);
          final CartController cartController=Get.find();
         await cartController.getCartByUser(currentUser.id!);
@@ -220,8 +223,6 @@ class AuthenticationController extends GetxController {
         
         await wishlistController.getWishlistByUserId(currentUser.id!);
         
-
-
         return Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (_) => const MainPage()));
 
@@ -247,17 +248,22 @@ class AuthenticationController extends GetxController {
     Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => const LoginPage()));
   }
-    Future<void> sendFrogetPasswordRequest(TextEditingController useremail,
-      String destionation, BuildContext context) async {
+    Future<void> sendFrogetPasswordRequest(
+      
+      TextEditingController useremail,
+      String destionation,
+       BuildContext context) async {
     String message = '';
     final res = await ForgetPasswordUsecase(sl())(
         email: useremail.text, destination: destionation);
-    res.fold((l){ 
+    res.fold(
+      (l){ 
        print("Error Response: ${l.message}");
       message = l.message!;
     }, (r) {
        print("Success Response: Email sent successfully.");
       myemail = useremail.text;
+      //on vide le champ 
       useremail.clear();
       message = "email sent";
       Navigator.of(context)
@@ -278,7 +284,7 @@ class AuthenticationController extends GetxController {
       TextEditingController otp, BuildContext context) async {
     if (otp.text.length == 4 && isNumeric(otp.text)) {
       final res = await OTPVerificationUsecase(sl())(
-          email: myemail, otp: int.parse(otp.text));
+          email: myemail, otp: int.parse(otp.text));//int.parse=>convertir le otp en entier 
       res.fold(
           (l) => Fluttertoast.showToast(
               msg: l.message!,
@@ -287,7 +293,8 @@ class AuthenticationController extends GetxController {
               timeInSecForIosWeb: 1,
               backgroundColor: Colors.red,
               textColor: Colors.white,
-              fontSize: 16.0), (r) {
+              fontSize: 16.0), 
+              (r) {
         otp.clear();
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (_) => ResetPasswordScreen()));
@@ -295,8 +302,12 @@ class AuthenticationController extends GetxController {
     }
   }
 
-  Future<void> resetPassword(TextEditingController password,
-      TextEditingController cpassword, BuildContext context) async {
+  Future<void> resetPassword(
+  
+    TextEditingController password,
+      TextEditingController cpassword,
+       BuildContext context) async {
+      
     String message = '';
     final res = await ResetPasswordUsecase(sl())(
         password: password.text, email: myemail);
@@ -354,7 +365,7 @@ class AuthenticationController extends GetxController {
 }) async {
   // Indique que le processus de mise à jour est en cours
   isLoading = true;
-  update(); // Met à jour l'interface utilisateur si nécessaire (via GetX)
+  update(); // Met à jour l'interface utilisateur
 
   final result = await UpdateUserUsecase(sl()).call(
     id: id,
@@ -368,8 +379,8 @@ class AuthenticationController extends GetxController {
 
   result.fold(
     (failure) {
-      // Gestion de l'échec
       isLoading = false;
+      //mise a jour de l'ecran 
       update();
       print("Update failed: ${failure.message}");
 
@@ -383,7 +394,6 @@ class AuthenticationController extends GetxController {
       );
     },
     (success) {
-      // Gestion du succès
       isLoading = false;
       update();
       print("Update successful");

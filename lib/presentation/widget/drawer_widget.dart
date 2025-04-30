@@ -13,13 +13,13 @@ class CustomDrawer extends StatelessWidget {
       backgroundColor: const Color(0xFFF5F5DC),// Light gray background
       child: Column(
         children: [
-          // Drawer Header with Logo
+          
           DrawerHeader(
             child: Image.asset(
               'assets/images/pit1.png'
             ),
           ),
-          // Divider
+         
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Divider(
@@ -27,7 +27,7 @@ class CustomDrawer extends StatelessWidget {
               thickness: 1,
             ),
           ),
-          // Edit Profile Section
+         
           Padding(
             padding: const EdgeInsets.only(left: 25.0),
             child: ListTile(
@@ -48,7 +48,7 @@ class CustomDrawer extends StatelessWidget {
               },
             ),
           ),
-          //edit password
+         
            Padding(
             padding: const EdgeInsets.only(left: 25.0),
             child: ListTile(
@@ -70,21 +70,8 @@ class CustomDrawer extends StatelessWidget {
               
             ),
           ),
-          // //notification 
-          //  const Padding(
-          //   padding: EdgeInsets.only(left: 25.0),
-          //   child: ListTile(
-          //     leading: Icon(
-          //       Icons.notifications,
-          //       color: Color.fromARGB(255, 61, 60, 60),
-          //     ),
-          //     title: Text(
-          //       'Notifications',
-          //       style: TextStyle(color: Color.fromARGB(255, 61, 60, 60)),
-          //     ),
-          //   ),
-          // ),
-          // FAQ Section
+    
+         
           const Padding(
             padding: EdgeInsets.only(left: 25.0),
             child: ListTile(
@@ -99,9 +86,9 @@ class CustomDrawer extends StatelessWidget {
             ),
           ),
           
-          // Spacer to push the Logout button to the bottom
+
           const Spacer(),
-          // Logout Button
+          
           Padding(
             padding: const EdgeInsets.only(left: 25.0, bottom: 25.0),
             child: ListTile(

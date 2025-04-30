@@ -3,7 +3,6 @@ import 'side_model.dart';
 
 class SaleModel extends Sale {
   // final String? customPizzaId;
-
   const SaleModel({
     required String? id,
     required String pizzaId,
@@ -41,21 +40,7 @@ class SaleModel extends Sale {
       pizzaType: json['pizzaType'],
     );
   }
-// factory SaleModel.fromJson(Map<String, dynamic> json) {
-//   print("📌 Parsing Sale JSON: $json"); // Debugging
 
-//   // Extract sale object if it exists
-//   final saleData = json.containsKey('sale') ? json['sale'] : json;
-
-//   return SaleModel(
-//     id: saleData['_id'] ?? '',
-//     pizzaId: saleData['pizzaId']?['_id'] ?? '', // Extract pizza ID correctly
-//     pizzaQuantity: saleData['quantitypizza'] ?? 0,
-//     userId: saleData['userId'] ?? '',
-//     totalPrice: (saleData['totalPrice'] is num) ? (saleData['totalPrice'] as num).toDouble() : 0.0,
-//     sides: (saleData['sides'] as List<dynamic>).map((side) => SaleSideModel.fromJson(side)).toList(),
-//   );
-// }
 
   Map<String, dynamic> toJson() {
     return {
@@ -66,10 +51,8 @@ class SaleModel extends Sale {
       'totalPrice': totalPrice,
       'sides': sides.map((side) => (side as SaleSideModel).toJson()).toList(),
       'pizzaType':pizzaType,
-      // 'customPizzaId': customPizzaId,
     };
   }
-  //  bool get isCustomPizza => customPizzaId != null;
 }
 
 

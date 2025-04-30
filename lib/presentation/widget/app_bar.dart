@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
-  final Size preferredSize; // Required for PreferredSizeWidget
+  final Size preferredSize;
 
   const CustomAppBar({Key? key})
       : preferredSize = const Size.fromHeight(120.0), // Hauteur ajustée
@@ -11,17 +11,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      // backgroundColor: const Color(0xFFB17C46), // Couleur de fond marron
-            backgroundColor: const Color(0xFFede8d0), // Couleur de fond marron
+            backgroundColor: const Color(0xFFede8d0), 
 
-      elevation: 0, // Suppression de l'ombre
-      automaticallyImplyLeading: true, // Affiche le bouton de menu par défaut
+      elevation: 0, 
+      automaticallyImplyLeading: true, 
       flexibleSpace: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 50.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Titre et sous-titre alignés à gauche
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,12 +30,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     color: Color(0xFF790303),
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Lobster', // Police personnalisée
+                    fontFamily: 'Lobster', 
                   ),
                 ),
-                SizedBox(height: 3), // Espacement entre le titre et le sous-titre
+                SizedBox(height: 3), 
                Padding(
-      padding: EdgeInsets.only(left: 40.0), // Décale le texte vers la droite
+      padding: EdgeInsets.only(left: 40.0), 
       child: Text(
         'Order your favourite pizza',
         style: TextStyle(
@@ -50,10 +48,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         )
               ],
             ),
-            // Image du logo
             const CircleAvatar(
-              radius: 38, // Taille ajustée pour correspondre au design
-              backgroundImage: AssetImage('assets/images/pizza logo.jpg'), // Chemin de l'image
+              radius: 38, 
+              backgroundImage: AssetImage('assets/images/pizza logo.jpg'),
             ),
           ],
         ),
